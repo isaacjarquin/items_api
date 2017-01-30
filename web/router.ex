@@ -8,8 +8,6 @@ defmodule ItemsApi.Router do
   scope "/api", ItemsApi do
     pipe_through :api
 
-    get "/", PageController, :index
-
     resources "/items", ItemController
   end
 
