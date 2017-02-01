@@ -10,7 +10,6 @@ dependencies:
     - ./circle_pre_build.sh
     - mix deps.compile
     - mix compile
-    - mix ecto.migrate
 test:
   override:
     - mix test
