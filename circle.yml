@@ -7,8 +7,8 @@ dependencies:
     - deps
     - _build
   pre:
-    - cp config/dev.secret.exs{.sample,}
-    - cp config/test.secret.exs{.sample,}
+    - cp config/dev.secret.exs
+    - cp config/test.secret.exs
     - ./circle_pre_build.sh
     - mix deps.compile
     - mix compile
