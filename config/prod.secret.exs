@@ -9,6 +9,7 @@ config :items_api, ItemsApi.Endpoint,
 # Configure your database
 config :items_api, ItemsApi.Repo,
   adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DATABASE_URL"),
   username: System.get_env("DATABASE_USERNAME"),
   password: System.get_env("DATABASE_PASSWORD"),
   database: "items_api",
