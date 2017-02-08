@@ -36,6 +36,7 @@ defmodule ItemsApi.Mixfile do
      {:phoenix_html, "~> 2.6.0"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
+     {:cors_plug, "~> 1.2"},
      {:cowboy, "~> 1.0"}]
   end
 
