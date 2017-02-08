@@ -17,6 +17,7 @@ defmodule ItemsApi.ItemView do
       size: item.size,
       date: item.date,
       location: item.location,
+      image: item.image,
       info: item.info}
   end
 end
