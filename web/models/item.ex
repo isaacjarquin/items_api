@@ -6,14 +6,15 @@ defmodule ItemsApi.Item do
     field :email, :string
     field :kind, :string
     field :size, :string
-    field :date, Ecto.DateTime
+    field :date, Ecto.Date
     field :location, :string
     field :info, :string
+    field :image, :string
 
     timestamps
   end
 
-  @required_fields ~w(name email kind size date location info)
+  @required_fields ~w(name email kind size date location info image)
   @optional_fields ~w()
 
   @doc """
