@@ -35,6 +35,5 @@ defmodule ItemsApi.Endpoint do
     key: "_items_api_key",
     signing_salt: "6AWnCgkA"
 
-  plug CORSPlug, origin: [System.get_env("CLIENT_URL_ORIGIN") || "http://localhost:5070"]
   plug ItemsApi.Router
 end
