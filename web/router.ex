@@ -10,6 +10,7 @@ defmodule ItemsApi.Router do
     pipe_through :api
 
     resources "/items", ItemController
+    options "/items", ItemController, :nothing
   end
 
   # Other scopes may use custom stacks.
