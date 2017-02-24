@@ -2,7 +2,7 @@ defmodule ItemsApi.Router do
   use ItemsApi.Web, :router
 
   pipeline :api do
-    plug CORSPlug, origin: [System.get_env("CLIENT_URL_ORIGIN")]
+    plug CORSPlug
     plug :accepts, ["json"]
   end
 
