@@ -13,18 +13,16 @@ defmodule ItemsApi.Item do
 
     timestamps
   end
-
-  @required_fields ~w(name email kind size date location info image)
-  @optional_fields ~w()
-
+  
   @doc """
   Creates a changeset based on the `model` and `params`.
 
   If no params are provided, an invalid changeset is returned
   with no validation performed.
   """
-  def changeset(model, params \\ :empty) do
+  def changeset(model, params \\ %{}) do
     model
-    |> cast(params, @required_fields, @optional_fields)
+    |> cast(params, [:name, :email, :kind, :size, :date, :location, :info, :image])
+    |> validate_required([:name, :email, :kind, :size, :date, :location, :info, :image])
   end
 end

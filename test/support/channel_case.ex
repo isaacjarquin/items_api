@@ -21,7 +21,6 @@ defmodule ItemsApi.ChannelCase do
       use Phoenix.ChannelTest
 
       alias ItemsApi.Repo
-      import Ecto.Model
       import Ecto.Query, only: [from: 2]
 
 
@@ -31,8 +30,10 @@ defmodule ItemsApi.ChannelCase do
   end
 
   setup tags do
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(ItemsApi.Repo)
+
     unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(ItemsApi.Repo, [])
+      Ecto.Adapters.SQL.Sandbox.mode(ItemsApi.Repo, {:shared, self()})
     end
 
     :ok
