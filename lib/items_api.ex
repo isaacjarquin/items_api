@@ -18,6 +18,13 @@ defmodule ItemsApi do
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: ItemsApi.Supervisor]
+    
+    ItemsApi.PhoenixInstrumenter.setup()
+    ItemsApi.PipelineInstrumenter.setup()
+    ItemsApi.RepoInstrumenter.setup()
+    Prometheus.Registry.register_collector(:prometheus_process_collector)
+    ItemsApi.PrometheusExporter.setup()
+
     Supervisor.start_link(children, opts)
   end
 
