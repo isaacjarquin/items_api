@@ -11,6 +11,9 @@ defmodule ItemsApi.Router do
 
     resources "/items", ItemController
     options "/items", ItemController, :options
+
+    resources "/contact_details", ContactDetailController
+    options "/contact_details", ContactDetailController, :options
   end
 
   # Other scopes may use custom stacks.
