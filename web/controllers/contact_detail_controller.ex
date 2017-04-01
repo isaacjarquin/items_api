@@ -1,6 +1,4 @@
 defmodule ItemsApi.ContactDetailController do
-  require Logger
-
   use ItemsApi.Web, :controller
 
   alias ItemsApi.ContactDetail
