@@ -5,6 +5,7 @@ defmodule ItemsApi.Item do
     field :name, :string
     field :email, :string
     field :kind, :string
+    field :breed, :string
     field :size, :string
     field :date, Ecto.Date
     field :location, :string
@@ -13,7 +14,7 @@ defmodule ItemsApi.Item do
 
     timestamps
   end
-  
+
   @doc """
   Creates a changeset based on the `model` and `params`.
 
@@ -22,7 +23,7 @@ defmodule ItemsApi.Item do
   """
   def changeset(model, params \\ %{}) do
     model
-    |> cast(params, [:name, :email, :kind, :size, :date, :location, :info, :image])
-    |> validate_required([:name, :email, :kind, :size, :date, :location, :info, :image])
+    |> cast(params, [:name, :email, :kind, :breed, :size, :date, :location, :info, :image])
+    |> validate_required([:name, :email, :kind, :breed, :size, :date, :location, :info, :image])
   end
 end
