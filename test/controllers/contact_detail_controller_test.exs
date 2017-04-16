@@ -32,6 +32,8 @@ defmodule ItemsApi.ContactDetailControllerTest do
   end
 
   test "creates and renders resource when data is valid", %{conn: conn} do
+    Repo.insert! %ItemsApi.Item{id: 42, email: "item@item.com"}
+
     conn = post conn, contact_detail_path(conn, :create), contact_detail: @valid_attrs
     assert json_response(conn, 201)["data"]["id"]
     assert Repo.get_by(ContactDetail, @valid_attrs)

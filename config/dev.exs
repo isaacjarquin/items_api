@@ -41,3 +41,6 @@ config :items_api, ItemsApi.Repo,
   database: "items_api_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :items_api, :email, ItemsApi.Email
+config :items_api, :mailer, ItemsApi.Mailer

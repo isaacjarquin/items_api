@@ -14,3 +14,13 @@ config :items_api, ItemsApi.Repo,
   password: System.get_env("DATABASE_PASSWORD"),
   database: "items_api",
   pool_size: 20
+
+config :items_api, ItemsApi.Mailer,
+  adapter: Bamboo.SMTPAdapter,
+  server: "smtp.gmail.com",
+  port: 465,
+  username: SYSTEM.get_env("SMTP_USERNAME"),
+  password: SYSTEM.get_env("SMTP_PASSWORD"),
+  tls: :if_available, # can be `:always` or `:never`
+  ssl: true, # can be `true`
+  retries: 1
