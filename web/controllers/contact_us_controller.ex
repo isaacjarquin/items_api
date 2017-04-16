@@ -3,6 +3,9 @@ defmodule ItemsApi.ContactUsController do
 
   alias ItemsApi.ContactUs
 
+  @email Application.get_env(:items_api, :email)
+  @mailer Application.get_env(:items_api, :mailer)
+
   def index(conn, _params) do
     contact_us = Repo.all(ContactUs)
     render(conn, "index.json", contact_us: contact_us)
@@ -13,6 +16,7 @@ defmodule ItemsApi.ContactUsController do
 
     case Repo.insert(changeset) do
       {:ok, contact_us} ->
+        @email.contact_us_email(contact_us) |> @mailer.deliver_now
         conn
         |> put_status(:created)
         |> put_resp_header("location", contact_us_path(conn, :show, contact_us))

@@ -9,12 +9,19 @@ defmodule ItemsApi.Email do
     |> text_body(build_message(contact_detail))
   end
 
-  def contact_us_email(user_email) do
+  def contact_us_email(details) do
     new_email
     |> to("myfoundpet@gmail.com")
-    |> from(user_email)
-    |> subject("Welcome!")
-    |> text_body("Welcome to My Lost Pet!")
+    |> from(details.email)
+    |> subject("Necitamos contactar con My Lost Pet")
+    |> text_body(build_contact_us_message(details))
+  end
+
+  def build_contact_us_message(details) do
+    "#{details.details} \n
+    Mis detalles de contacto son: \n
+    Nombre: #{details.name} \n
+    Correo: #{details.email}"
   end
 
   def build_message(contact_detail) do
