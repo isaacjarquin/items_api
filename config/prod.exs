@@ -19,6 +19,9 @@ config :items_api, ItemsApi.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :items_api, :email, ItemsApi.Email
+config :items_api, :mailer, ItemsApi.Mailer
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

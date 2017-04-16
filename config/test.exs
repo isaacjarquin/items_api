@@ -17,3 +17,6 @@ config :items_api, ItemsApi.Repo,
   database: "items_api_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :items_api, :email, ItemsApi.Mocks.Email
+config :items_api, :mailer, ItemsApi.Mocks.Mailer
