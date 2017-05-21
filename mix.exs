@@ -18,7 +18,7 @@ defmodule ItemsApi.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {ItemsApi, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex, :bamboo]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex, :bamboo, :quantum]]
   end
 
   # Specifies which paths to compile per environment.
@@ -40,7 +40,8 @@ defmodule ItemsApi.Mixfile do
      {:cors_plug, "~> 1.2"},
      {:cowboy, "~> 1.0"},
      {:bamboo, "~> 0.7"},
-     {:bamboo_smtp, "~> 1.2.1"}
+     {:bamboo_smtp, "~> 1.2.1"},
+     {:quantum, ">= 1.9.2"}
     ]
   end
 

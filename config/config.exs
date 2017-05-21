@@ -29,3 +29,11 @@ config :phoenix, :generators,
   binary_id: false
 
 config :items_api, ecto_repos: [ItemsApi.Repo]
+
+config :quantum, :items_api,
+  cron: [
+    # Every minute
+    "* * * * *":  { Mix.Tasks.Items, :remove },
+    # Runs every midnight:
+    "@daily": { Mix.Tasks.Items, :remove }
+  ]
