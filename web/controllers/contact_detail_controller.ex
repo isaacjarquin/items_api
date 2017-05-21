@@ -18,6 +18,9 @@ defmodule ItemsApi.ContactDetailController do
       {:ok, contact_detail} ->
         item = Repo.get!(ItemsApi.Item, contact_detail_params["item_id"])
         send_email_to = item.email
+        {:ok, removal_date} =  item_removal_date()
+        updated_item = Ecto.Changeset.change(item, %{item_removal_date: removal_date |> Ecto.Date.cast!})
+        Repo.update(updated_item)
         @email.customer_notification_email(send_email_to, contact_detail) |> @mailer.deliver_now
         conn
         |> put_status(:created)
@@ -28,6 +31,10 @@ defmodule ItemsApi.ContactDetailController do
         |> put_status(:unprocessable_entity)
         |> render(ItemsApi.ChangesetView, "error.json", changeset: changeset)
     end
+  end
+
+  def item_removal_date() do
+    DateTime.utc_now |> DateTime.to_unix |> (+ 2592000) |> DateTime.from_unix()
   end
 
   def show(conn, %{"id" => id}) do
