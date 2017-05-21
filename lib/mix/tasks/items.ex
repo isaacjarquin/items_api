@@ -1,9 +1,15 @@
+import Ecto.Query
+alias ItemsApi.Repo
+
 defmodule Mix.Tasks.Items do
   @shortdoc "remove items no longer available and image from cloudinary"
 
   def remove do
-    # item = Repo.all(ItemsApi.Item, contact_detail_params["item_id"])
+    {:ok, date} = DateTime.utc_now |> DateTime.to_unix |> (+ 2592000) |> DateTime.from_unix()
 
-    IO.puts "Remove all the pets that are no longer available"
+    formatted_date = date |> Ecto.Date.cast!
+    query = from i in ItemsApi.Item, where: i.item_removal_date == ^formatted_date
+    # query = from i in ItemsApi.Item, where: i.item_removal_date == Date.Ecto.utc
+    items = Repo.all(query)
   end
 end
