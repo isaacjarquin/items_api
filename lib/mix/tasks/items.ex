@@ -9,8 +9,22 @@ defmodule Mix.Tasks.Items do
 
     current_date_formatted = today |> Ecto.Date.cast!
     query = from i in ItemsApi.Item, where: i.item_removal_date == ^current_date_formatted
-    # query = from i in ItemsApi.Item, where: i.item_removal_date == Date.Ecto.utc
+
     items = Repo.all(query)
+    remove_images_from_cloudinary(items)
+    remove_items(items)
+  end
+
+  def remove_images_from_cloudinary(items) do
+    # Enum.each items,  fn item -> {Cloudex.delete(item.image)} end
+    Enum.each items,  fn item -> {IO.puts "#{item.image}"} end
+  end
+
+  def remove_items(items) do
+    # Enum.each items,  fn item ->
+    #   item = Repo.get!(Item, item.id)
+    #   Repo.delete!(item)
+    # end
   end
 
   def current_date do
