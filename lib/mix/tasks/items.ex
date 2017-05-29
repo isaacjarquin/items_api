@@ -14,7 +14,7 @@ defmodule Mix.Tasks.Items do
   end
 
   defp remove_image_from_cludinary(image) do
-    {:ok, response} = @ex_cloudinary.delete_image(public_id(image))
+    {:ok, response} = public_id(image) |> @ex_cloudinary.delete_image()
 
     if response.result == "not found" do
       {:error, response}
