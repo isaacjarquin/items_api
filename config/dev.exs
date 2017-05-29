@@ -44,3 +44,4 @@ config :items_api, ItemsApi.Repo,
 
 config :items_api, :email, ItemsApi.Email
 config :items_api, :mailer, ItemsApi.Mailer
+config :items_api, :ex_cloudinary, ExCloudinary

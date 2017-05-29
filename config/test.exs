@@ -20,3 +20,4 @@ config :items_api, ItemsApi.Repo,
 
 config :items_api, :email, ItemsApi.Mocks.Email
 config :items_api, :mailer, ItemsApi.Mocks.Mailer
+config :items_api, :ex_cloudinary, ItemsApi.Mocks.ExCloudinary
