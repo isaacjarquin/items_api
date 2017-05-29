@@ -39,4 +39,13 @@ defmodule Mix.Tasks.ItemsTest do
     Items.remove(today)
     assert length(Repo.all(ItemsApi.Item)) == 2
   end
+
+  test "image removing from cloudinary return error, so it should not delete items from db" do
+    Repo.insert! %ItemsApi.Item{id: 1, image: "", item_removal_date: DateTime.utc_now |> Ecto.Date.cast!}
+    Repo.insert! %ItemsApi.Item{id: 2, image: "", item_removal_date: DateTime.utc_now |> Ecto.Date.cast!}
+
+    today = DateTime.utc_now
+    Items.remove(today)
+    assert length(Repo.all(ItemsApi.Item)) == 2
+  end
 end
