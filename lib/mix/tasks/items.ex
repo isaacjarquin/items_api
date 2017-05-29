@@ -5,7 +5,7 @@ defmodule Mix.Tasks.Items do
   @shortdoc "remove items no longer available and image from cloudinary"
 
   def remove do
-    Enum.each items(), fn item ->
+    Enum.each items, fn item ->
         with {:ok, cloudinary_response} <- remove_image_from_cludinary(item.image),
              {:ok, ecto_response} <- remove_item_from_db(item) do
         else
@@ -29,18 +29,17 @@ defmodule Mix.Tasks.Items do
   end
 
   defp items do
-    Repo.all(query())
+    Repo.all(query)
   end
 
   defp query do
-    { :ok, today } = current_date()
+    { :ok, today } = current_date
 
     current_date_formatted = today |> Ecto.Date.cast!
     from i in ItemsApi.Item, where: i.item_removal_date == ^current_date_formatted
   end
 
   defp public_id(image) do
-    # String.split(image, "/") |> List.last |> String.split(".") |> List.first
     image
     |> String.split("/")
     |> List.last
@@ -51,6 +50,6 @@ defmodule Mix.Tasks.Items do
   defp current_date do
     DateTime.utc_now |>
     DateTime.to_unix |>
-    DateTime.from_unix()
+    DateTime.from_unix
   end
 end
