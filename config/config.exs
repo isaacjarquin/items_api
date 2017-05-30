@@ -37,8 +37,3 @@ config :quantum, :items_api,
     # Runs every midnight:
     "@daily": { Mix.Tasks.Items, :remove }
   ]
-
-config :ex_cloudinary,
-    api_key: "519722633886756",
-    api_secret: "-Q2vKAsLho_6eSiXY4cnX0B6M5s",
-    cloud_name: "my-lost-pet"
