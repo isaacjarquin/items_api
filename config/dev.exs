@@ -42,6 +42,11 @@ config :items_api, ItemsApi.Repo,
   hostname: "localhost",
   pool_size: 10
 
+config :ex_cloudinary,
+  api_key: "testapikey",
+  api_secret: "testapisecret",
+  cloud_name: "testcloudname"
+
 config :items_api, :email, ItemsApi.Email
 config :items_api, :mailer, ItemsApi.Mailer
 config :items_api, :ex_cloudinary, ExCloudinary
