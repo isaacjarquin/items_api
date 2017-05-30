@@ -19,13 +19,13 @@ config :items_api, ItemsApi.Mailer,
   adapter: Bamboo.SMTPAdapter,
   server: "smtp.gmail.com",
   port: 465,
-  username: SYSTEM.get_env("SMTP_USERNAME"),
-  password: SYSTEM.get_env("SMTP_PASSWORD"),
+  username: System.get_env("SMTP_USERNAME"),
+  password: System.get_env("SMTP_PASSWORD"),
   tls: :if_available, # can be `:always` or `:never`
   ssl: true, # can be `true`
   retries: 1
 
 config :ex_cloudinary,
-  api_key: SYSTEM.get_env("CLOUDINARY_API_KEY"),
-  api_secret: SYSTEM.get_env("CLOUDINARY_API_SECRET"),
-  cloud_name: SYSTEM.get_env("CLOUDINARY_CLOUD_NAME")
+  api_key: System.get_env("CLOUDINARY_API_KEY"),
+  api_secret: System.get_env("CLOUDINARY_API_SECRET"),
+  cloud_name: System.get_env("CLOUDINARY_CLOUD_NAME")
