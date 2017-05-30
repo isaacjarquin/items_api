@@ -37,3 +37,8 @@ config :quantum, :items_api,
     # Runs every midnight:
     "@daily": { Mix.Tasks.Items, :remove }
   ]
+
+config :ex_cloudinary,
+    api_key: "",
+    api_secret: "",
+    cloud_name: ""
