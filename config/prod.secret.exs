@@ -24,3 +24,8 @@ config :items_api, ItemsApi.Mailer,
   tls: :if_available, # can be `:always` or `:never`
   ssl: true, # can be `true`
   retries: 1
+
+config :ex_cloudinary,
+  api_key: SYSTEM.get_env("CLOUDINARY_API_KEY"),
+  api_secret: SYSTEM.get_env("CLOUDINARY_API_SECRET"),
+  cloud_name: SYSTEM.get_env("CLOUDINARY_CLOUD_NAME")

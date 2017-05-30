@@ -19,13 +19,26 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-# Import environment specific config. This must remain at the bottom
-# of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
-
 # Configure phoenix generators
 config :phoenix, :generators,
   migration: true,
   binary_id: false
 
 config :items_api, ecto_repos: [ItemsApi.Repo]
+
+config :quantum, :items_api,
+  cron: [
+    # Every minute
+    # "* * * * *":  { Mix.Tasks.Items, :remove },
+    # Runs every midnight:
+    "@daily": { Mix.Tasks.Items, :remove }
+  ]
+
+config :ex_cloudinary,
+    api_key: "",
+    api_secret: "",
+    cloud_name: ""
+
+# Import environment specific config. This must remain at the bottom
+# of this file so it overrides the configuration defined above.
+import_config "#{Mix.env}.exs"
