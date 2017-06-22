@@ -11,18 +11,6 @@ defmodule ItemsApi.ItemController do
     render(conn, "index.json", items: items)
   end
 
-  def index(conn, %{"autonomousComunity" => autonomousComunity}) do
-    query = from i in Item, where: i.autonomous_comunity == ^autonomousComunity
-    items = Repo.all(query)
-    render(conn, "index.json", items: items)
-  end
-
-  def index(conn, %{"petType" => petType}) do
-    query = from i in Item, where: i.kind == ^petType
-    items = Repo.all(query)
-    render(conn, "index.json", items: items)
-  end
-
   def index(conn, %{"petType" => petType, "autonomousComunity" => autonomousComunity}) do
     query = from i in Item, where: i.kind == ^petType and i.autonomous_comunity == ^autonomousComunity
     items = Repo.all(query)
@@ -31,6 +19,18 @@ defmodule ItemsApi.ItemController do
 
   def index(conn, %{"autonomousComunity" => autonomousComunity, "province" => province}) do
     query = from i in Item, where: i.autonomous_comunity == ^autonomousComunity and i.province == ^province
+    items = Repo.all(query)
+    render(conn, "index.json", items: items)
+  end
+
+  def index(conn, %{"autonomousComunity" => autonomousComunity}) do
+    query = from i in Item, where: i.autonomous_comunity == ^autonomousComunity
+    items = Repo.all(query)
+    render(conn, "index.json", items: items)
+  end
+
+  def index(conn, %{"petType" => petType}) do
+    query = from i in Item, where: i.kind == ^petType
     items = Repo.all(query)
     render(conn, "index.json", items: items)
   end
