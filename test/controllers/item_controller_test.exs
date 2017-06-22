@@ -2,7 +2,7 @@ defmodule ItemsApi.ItemControllerTest do
   use ItemsApi.ConnCase
 
   alias ItemsApi.Item
-  @valid_attrs %{date: "2010-04-17", email: "some content", info: "some content", kind: "some content", breed: "some content", location: "some content", name: "some content", size: "some content", image: "some content"}
+  @valid_attrs %{date: "2010-04-17", email: "some content", info: "some content", kind: "some content", breed: "some content", autonomous_comunity: "some content", name: "some content", size: "some content", image: "some content"}
   @invalid_attrs %{}
 
   setup %{conn: conn} do
@@ -24,7 +24,9 @@ defmodule ItemsApi.ItemControllerTest do
       "breed" => item.breed,
       "size" => item.size,
       "date" => item.date,
+      "autonomous_comunity" => item.autonomous_comunity,
       "location" => item.location,
+      "province" => item.province,
       "image" => item.image,
       "info" => item.info}
   end
