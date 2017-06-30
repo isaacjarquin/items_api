@@ -35,5 +35,7 @@ defmodule ItemsApi.Endpoint do
     key: "_items_api_key",
     signing_salt: "6AWnCgkA"
 
+  plug ItemsApi.PrometheusExporter     # makes the /metrics URL happen
+  plug ItemsApi.PipelineInstrumenter   # measures pipeline exec times
   plug ItemsApi.Router
 end
