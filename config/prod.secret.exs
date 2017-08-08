@@ -13,7 +13,7 @@ config :items_api, ItemsApi.Repo,
   username: System.get_env("DATABASE_USERNAME"),
   password: System.get_env("DATABASE_PASSWORD"),
   database: "items_api",
-  pool_size: 10
+  pool_size: 15
 
 config :items_api, ItemsApi.Mailer,
   adapter: Bamboo.SMTPAdapter,

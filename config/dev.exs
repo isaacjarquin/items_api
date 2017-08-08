@@ -40,7 +40,7 @@ config :items_api, ItemsApi.Repo,
   password: "postgres",
   database: "items_api_dev",
   hostname: "localhost",
-  pool_size: 10
+  pool_size: 15
 
 config :ex_cloudinary,
   api_key: "testapikey",
