@@ -18,7 +18,7 @@ defmodule ItemsApi.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {ItemsApi, []},
-     applications: [:ex_cloudinary, :phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex, :bamboo, :quantum]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex, :bamboo, :quantum, :bamboo_smtp, :cors_plug]]
   end
 
   # Specifies which paths to compile per environment.
@@ -42,7 +42,7 @@ defmodule ItemsApi.Mixfile do
      {:bamboo, "~> 0.8.0"},
      {:bamboo_smtp, "~> 1.3.0"},
      {:quantum, ">= 1.9.2"},
-     {:ex_cloudinary, "~> 0.2.0"}
+     {:distillery, "~> 1.5", runtime: false}
     ]
   end
 

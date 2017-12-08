@@ -25,7 +25,7 @@ config :items_api, ItemsApi.Mailer,
   ssl: true, # can be `true`
   retries: 1
 
-config :ex_cloudinary,
-  api_key: System.get_env("CLOUDINARY_API_KEY"),
-  api_secret: System.get_env("CLOUDINARY_API_SECRET"),
-  cloud_name: System.get_env("CLOUDINARY_CLOUD_NAME")
+# config :ex_cloudinary,
+#   api_key: System.get_env("CLOUDINARY_API_KEY"),
+#   api_secret: System.get_env("CLOUDINARY_API_SECRET"),
+#   cloud_name: System.get_env("CLOUDINARY_CLOUD_NAME")
