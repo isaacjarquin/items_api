@@ -3,7 +3,7 @@ defmodule ItemsApi.ItemTest do
 
   alias ItemsApi.Item
 
-  @valid_attrs %{date: "2010-04-17", email: "some content", info: "some content", kind: "some content", breed: "some content", autonomous_comunity: "some content", name: "some content", size: "some content", image: "some content"}
+  @valid_attrs %{date: "2010-04-17", email: "some content", info: "some content", kind: "some content", breed: "some content", name: "some content", latitud: "some latitud", longitud: "some longitud", size: "some content", location: "some location", image: "some content", autonomous_comunity:  nil, latitud: nil, longitud: nil, province: nil,}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
