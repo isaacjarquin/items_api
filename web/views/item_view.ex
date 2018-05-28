@@ -18,8 +18,6 @@ defmodule ItemsApi.ItemView do
       size: item.size,
       date: item.date,
       location: item.location,
-      autonomous_comunity: item.autonomous_comunity,
-      province: item.province,
       image: item.image,
       latitud: item.latitud,
       longitud: item.longitud,

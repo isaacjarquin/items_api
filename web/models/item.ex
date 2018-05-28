@@ -12,8 +12,6 @@ defmodule ItemsApi.Item do
     field :location, :string
     field :latitud, :float
     field :longitud, :float
-    field :autonomous_comunity, :string
-    field :province, :string
     field :info, :string
     field :image, :string
 

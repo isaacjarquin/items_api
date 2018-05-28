@@ -24,10 +24,8 @@ defmodule ItemsApi.ItemControllerTest do
       "breed" => item.breed,
       "size" => item.size,
       "date" => item.date,
-      "autonomous_comunity" => nil,
       "latitud" => nil,
       "longitud" => nil,
-      "province" => nil,
       "location" => item.location,
       "image" => item.image,
       "info" => item.info}
