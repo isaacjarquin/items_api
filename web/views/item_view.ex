@@ -14,6 +14,7 @@ defmodule ItemsApi.ItemView do
       name: item.name,
       email: item.email,
       kind: item.kind,
+      status: item.status,
       breed: item.breed,
       size: item.size,
       date: item.date,
