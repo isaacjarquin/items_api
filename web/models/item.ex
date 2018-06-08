@@ -5,6 +5,7 @@ defmodule ItemsApi.Item do
     field :name, :string
     field :email, :string
     field :kind, :string
+    field :status, :string
     field :breed, :string
     field :size, :string
     field :date, Ecto.Date
@@ -26,7 +27,7 @@ defmodule ItemsApi.Item do
   """
   def changeset(model, params \\ %{}) do
     model
-    |> cast(params, [:name, :email, :kind, :breed, :size, :date, :location, :latitud, :longitud, :info, :image, :item_removal_date])
+    |> cast(params, [:name, :email, :kind, :status, :breed, :size, :date, :location, :latitud, :longitud, :info, :image, :item_removal_date])
     |> validate_required([:name, :email, :kind, :breed, :size, :date, :location, :info, :image])
   end
 end

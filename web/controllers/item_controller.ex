@@ -5,8 +5,20 @@ defmodule ItemsApi.ItemController do
 
   plug :scrub_params, "item" when action in [:create, :update]
 
+  def index(conn, %{"petType" => petType, "petStatus" => petStatus}) do
+    query = from i in Item, where: i.kind == ^petType and i.status == ^petStatus
+    items = Repo.all(query)
+    render(conn, "index.json", items: items)
+  end
+
   def index(conn, %{"petType" => petType}) do
     query = from i in Item, where: i.kind == ^petType
+    items = Repo.all(query)
+    render(conn, "index.json", items: items)
+  end
+
+  def index(conn, %{"petStatus" => petStatus}) do
+    query = from i in Item, where: i.status == ^petStatus
     items = Repo.all(query)
     render(conn, "index.json", items: items)
   end

@@ -26,6 +26,7 @@ defmodule ItemsApi.ItemControllerTest do
       "date" => item.date,
       "latitud" => nil,
       "longitud" => nil,
+      "status" => nil,
       "location" => item.location,
       "image" => item.image,
       "info" => item.info}
