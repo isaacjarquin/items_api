@@ -34,7 +34,7 @@ defmodule ItemsApi.ContactDetailController do
   end
 
   def item_removal_date() do
-    DateTime.utc_now |> DateTime.to_unix |> (+ 2592000) |> DateTime.from_unix()
+    DateTime.add(DateTime.utc_now, 2592000) |> DateTime.to_unix |> DateTime.from_unix()
   end
 
   def show(conn, %{"id" => id}) do
